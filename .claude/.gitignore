@@ -1,0 +1,11 @@
+# ignore everything
+*
+
+# allow essentials
+!CLAUDE.md
+!statusline-command.sh
+!statusline-wrapper.sh
+!settings.json
+
+# allow this file itself
+!.gitignore

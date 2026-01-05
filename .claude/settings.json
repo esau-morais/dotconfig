@@ -1,0 +1,14 @@
+{
+  "includeCoAuthoredBy": false,
+  "model": "claude-opus-4-5",
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/statusline-wrapper.sh"
+  },
+  "enabledPlugins": {
+    "typescript-lsp@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "claude-hud@claude-hud": false
+  },
+  "alwaysThinkingEnabled": false
+}
