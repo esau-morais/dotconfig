@@ -1,29 +1,40 @@
 {
-	"version": 3,
-	"lines": [
-		[
-			{
-				"id": "1",
-				"type": "context-percentage",
-				"color": "yellow",
-				"bold": true,
-				"rawValue": true
-			}
-		],
-		[],
-		[]
-	],
-	"flexMode": "full-minus-40",
-	"compactThreshold": 60,
-	"colorLevel": 2,
-	"inheritSeparatorColors": false,
-	"globalBold": false,
-	"powerline": {
-		"enabled": false,
-		"separators": [""],
-		"separatorInvertBackground": [false],
-		"startCaps": [],
-		"endCaps": [],
-		"autoAlign": false
-	}
+  "version": 3,
+  "lines": [
+    [
+      {
+        "id": "1",
+        "type": "model",
+        "color": "cyan"
+      },
+      {
+        "id": "09420b72-0eea-491b-b242-7b332a2eb436",
+        "type": "separator"
+      },
+      {
+        "id": "3",
+        "type": "context-percentage",
+        "color": "yellow",
+        "bold": true,
+        "rawValue": true
+      }
+    ]
+  ],
+  "flexMode": "full-minus-40",
+  "compactThreshold": 60,
+  "colorLevel": 2,
+  "inheritSeparatorColors": false,
+  "globalBold": false,
+  "powerline": {
+    "enabled": false,
+    "separators": [
+      ""
+    ],
+    "separatorInvertBackground": [
+      false
+    ],
+    "startCaps": [],
+    "endCaps": [],
+    "autoAlign": false
+  }
 }
