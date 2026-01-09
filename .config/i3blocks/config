@@ -1,0 +1,26 @@
+[batterybar]
+command=$SCRIPT_DIR/batterybar
+label=Bat:
+interval=5
+markup=pango
+min_width=Bat: ■■■■■
+
+[time]
+command=$SCRIPT_DIR/time
+interval=1
+
+[key_layout]
+command=$SCRIPT_DIR/key_layout
+label=Layout
+interval=30
+
+[record]
+command=$SCRIPT_DIR/screencast
+label=
+interval=2
+color=#FF0000
+
+[volume]
+command=$SCRIPT_DIR/volume
+interval=once
+signal=10
