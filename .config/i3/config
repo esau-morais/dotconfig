@@ -15,12 +15,8 @@ set $mod Mod4
 # is used in the bar {} block below.
 font pango:Ubuntu Sans Regular 8
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-
 # add compositor
-exec --no-startup-id compton -b &
+exec --no-startup-id picom -b &
 
 exec --no-startup-id feh --bg-scale /home/emots/Pictures/wallpaper.png
 
@@ -35,12 +31,9 @@ exec --no-startup-id xrdb ~/.Xresources
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
+bindsym $mod+shift+x exec betterlockscreen --lock
 
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+bindsym $mod+Shift+minus move container to workspace 5
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -209,7 +202,7 @@ bindsym $mod+r mode "resize"
 # set default keyboard layouts
 set $main_layout "gb"
 set $alt_layout "br"
-exec_always setxkbmap -layout $main_layout,$alt_layout -option 'grp:alt_shift_toggle'
+exec_always --no-startup-id setxkbmap -layout $main_layout,$alt_layout -option 'grp:win_space'
 
 smart_gaps on
 # between windows
