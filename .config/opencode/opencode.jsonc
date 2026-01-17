@@ -1,0 +1,15 @@
+{
+	"$schema": "https://opencode.ai/config.json",
+	"mcp": {
+		"bun": {
+			"enabled": true,
+			"type": "remote",
+			"url": "https://bun.com/docs/mcp"
+		},
+		"remotion-documentation": {
+			"type": "local",
+			"enabled": true,
+			"command": ["npx", "-y", "@remotion/mcp@latest"]
+		}
+	}
+}
