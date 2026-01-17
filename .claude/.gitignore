@@ -6,6 +6,7 @@
 !statusline-command.sh
 !statusline-wrapper.sh
 !settings.json
+!skills/
 
 # allow this file itself
 !.gitignore
