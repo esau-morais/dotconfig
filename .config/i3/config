@@ -202,7 +202,7 @@ bindsym $mod+r mode "resize"
 # set default keyboard layouts
 set $main_layout "gb"
 set $alt_layout "br"
-exec_always --no-startup-id setxkbmap -layout $main_layout,$alt_layout -option 'grp:win_space'
+exec_always --no-startup-id setxkbmap -layout $main_layout,$alt_layout -option 'grp:alt_shift_toggle'
 
 smart_gaps on
 # between windows
