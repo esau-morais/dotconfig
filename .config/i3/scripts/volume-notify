@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+SINK="@DEFAULT_SINK@"
+
+get_volume() {
+  pactl get-sink-volume "$SINK" | grep -oP '\d+(?=%)' | head -n1
+}
+
+is_muted() {
+  pactl get-sink-mute "$SINK" | grep -q yes
+}
+
+if is_muted; then
+  icon="audio-volume-muted"
+  text="Muted"
+  vol=0
+else
+  vol=$(get_volume)
+  if [ "$vol" -ge 70 ]; then
+    icon="audio-volume-high"
+  elif [ "$vol" -ge 30 ]; then
+    icon="audio-volume-medium"
+  else
+    icon="audio-volume-low"
+  fi
+  text="${vol}%"
+fi
+
+notify-send -h string:x-canonical-private-synchronous:volume \
+  -h int:value:"$vol" \
+  -i "$icon" \
+  -t 1500 \
+  "Volume" "$text"

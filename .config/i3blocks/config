@@ -5,6 +5,12 @@ interval=5
 markup=pango
 min_width=Bat: ■■■■■
 
+[volume]
+command=$SCRIPT_DIR/volume
+label=♪
+interval=once
+signal=10
+
 [time]
 command=$SCRIPT_DIR/time
 interval=1
@@ -14,13 +20,3 @@ command=$SCRIPT_DIR/key_layout
 label=Layout
 interval=30
 
-[record]
-command=$SCRIPT_DIR/screencast
-label=
-interval=2
-color=#FF0000
-
-[volume]
-command=$SCRIPT_DIR/volume
-interval=once
-signal=10
