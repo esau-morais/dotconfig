@@ -40,10 +40,11 @@ bindsym $mod+Shift+minus move container to workspace 5
 exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+set $refresh_i3blocks pkill -RTMIN+10 i3blocks
+set $volume_notify ~/.config/i3/scripts/volume-notify
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3blocks && $volume_notify
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3blocks && $volume_notify
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3blocks && $volume_notify
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # adjust brightness
@@ -122,11 +123,7 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # screenshot
-bindsym --release $mod+Shift+S exec maim -s | xclip -selection clipboard -t image/png
-
-# screencast
-set $screencast bash $HOME/.config/i3blocks/scripts/record
-bindsym $mod+Shift+V exec $screencast
+bindsym --release $mod+Shift+S exec sh -c 'maim -s | tee ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png | xclip -selection clipboard -t image/png'
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
