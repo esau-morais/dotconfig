@@ -6,22 +6,25 @@
 			"type": "remote",
 			"url": "https://bun.com/docs/mcp"
 		},
-		"remotion-documentation": {
+		"remotion": {
 			"type": "local",
 			"enabled": false,
 			"command": ["npx", "-y", "@remotion/mcp@latest"]
 		},
 		"tanstack": {
-			"type": "remote",
-			"url": "https://tanstack.com/api/mcp",
-			"headers": {
-				"Authorization": "Bearer ts_3d2f15ab41d5f54e857d3e426c0b27c5d411ed6da88c65e5f00cefdd2e109be3"
-			}
+			"type": "local",
+			"enabled": true,
+			"command": ["npx", "@tanstack/cli", "mcp"]
 		},
 		"shadcn": {
 			"type": "local",
 			"command": ["npx", "shadcn@latest", "mcp"],
 			"enabled": true
+		},
+		"astro": {
+			"type": "remote",
+			"url": "https://mcp.docs.astro.build/mcp",
+			"enabled": false
 		}
 	}
 }

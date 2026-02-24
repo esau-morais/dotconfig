@@ -12,7 +12,6 @@ source $ZSH/oh-my-zsh.sh
 alias vi="nvim"
 alias pn="pnpm"
 alias lg="lazygit"
-alias c="cursor"
 alias cl="claude"
 alias oc="opencode"
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
@@ -39,7 +38,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # pnpm
-export PNPM_HOME="/home/emorais/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
@@ -50,14 +49,14 @@ export PATH="$PNPM_HOME:$PATH"
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
 
 # bun completions
-[ -s "/home/emorais/.bun/_bun" ] && source "/home/emorais/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # deno
-export DENO_INSTALL="/home/emorais/.deno"
+export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
 # bun completions
@@ -76,3 +75,10 @@ export DISABLE_AUTO_UPDATE="true"
 # Added by flyctl installer
 export FLYCTL_INSTALL="/home/emots/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+# Dotfiles management alias
+alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+export PATH="$HOME/.npm-global/bin:$PATH"
+
+# OpenClaw Completion
+source "/home/emots/.openclaw/completions/openclaw.zsh"

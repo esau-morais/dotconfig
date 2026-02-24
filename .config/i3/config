@@ -18,7 +18,7 @@ font pango:Ubuntu Sans Regular 8
 # add compositor
 exec --no-startup-id picom -b &
 
-exec --no-startup-id feh --bg-scale /home/emots/Pictures/wallpaper.png
+exec --no-startup-id feh --bg-scale $HOME/Pictures/wallpaper.png
 
 set $TOUCHPAD_DEVICE "FOCA0001:00 2808:0106 Touchpad"
 # inverted touchpad scroll
@@ -26,6 +26,54 @@ exec --no-startup-id xinput set-prop $TOUCHPAD_DEVICE "libinput Natural Scrollin
 # touchpad tapping
 exec --no-startup-id xinput set-prop $TOUCHPAD_DEVICE "libinput Tapping Enabled" 1
 exec --no-startup-id xrdb ~/.Xresources
+
+# enter mouse-mode (pick ONE trigger you don't already use)
+bindsym $mod+m mode "mouse"
+
+set $mslow 6
+set $mfast 20
+
+mode "mouse" {
+  # smooth: small step, hold key to repeat
+  bindsym h exec --no-startup-id xdotool mousemove_relative -- -$mslow 0
+  bindsym l exec --no-startup-id xdotool mousemove_relative --  $mslow 0
+  bindsym k exec --no-startup-id xdotool mousemove_relative --  0 -$mslow
+  bindsym j exec --no-startup-id xdotool mousemove_relative --  0  $mslow
+
+  # faster while holding Shift
+  bindsym Shift+h exec --no-startup-id xdotool mousemove_relative -- -$mfast 0
+  bindsym Shift+l exec --no-startup-id xdotool mousemove_relative --  $mfast 0
+  bindsym Shift+k exec --no-startup-id xdotool mousemove_relative --  0 -$mfast
+  bindsym Shift+j exec --no-startup-id xdotool mousemove_relative --  0  $mfast
+
+  # diagonals (y u b n)
+  bindsym y exec --no-startup-id xdotool mousemove_relative -- -$mslow -$mslow
+  bindsym u exec --no-startup-id xdotool mousemove_relative --  $mslow -$mslow
+  bindsym b exec --no-startup-id xdotool mousemove_relative -- -$mslow  $mslow
+  bindsym n exec --no-startup-id xdotool mousemove_relative --  $mslow  $mslow
+
+  # scroll
+  bindsym d exec --no-startup-id xdotool click 4
+  bindsym f exec --no-startup-id xdotool click 5
+  bindsym Shift+d exec --no-startup-id xdotool click --repeat 5 --delay 0 4
+  bindsym Shift+f exec --no-startup-id xdotool click --repeat 5 --delay 0 5
+
+  # clicks (space/enter)
+  bindsym space exec --no-startup-id xdotool click 1
+  bindsym Shift+space exec --no-startup-id xdotool click 3
+  bindsym Return exec --no-startup-id xdotool click 1
+
+  # back to normal: Enter or Escape or $mod+r
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+  bindsym $mod+m mode "default"
+}
+
+# warpd - keyboard-driven mouse hints
+exec --no-startup-id warpd
+bindsym $mod+g exec --no-startup-id warpd --hint --oneshot
+bindsym $mod+Shift+g exec --no-startup-id warpd --grid --oneshot
+bindsym $mod+n exec --no-startup-id warpd --normal --oneshot
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -123,7 +171,7 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # screenshot
-bindsym --release $mod+Shift+S exec sh -c 'maim -s | tee ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png | xclip -selection clipboard -t image/png'
+bindsym $mod+Shift+S exec --no-startup-id ~/.config/i3/scripts/screenshot
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
