@@ -1,0 +1,6 @@
+# fisher-managed files (reinstalled via `fisher update`)
+fish_variables
+functions/
+completions/
+conf.d/_tide_init.fish
+conf.d/fzf.fish
