@@ -27,4 +27,6 @@ function pomodoro
     spd-say "'$type' session done"
 end
 
+set -U fish_greeting ""
+
 # PATH and env vars are set in conf.d/paths.fish
