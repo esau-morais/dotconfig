@@ -118,3 +118,7 @@ fi
 . "$HOME/.cargo/env"
 
 . "$HOME/.local/share/../bin/env"
+export PATH="$HOME/.npm-global/bin:$PATH"
+
+# Added by Grind installer
+export PATH="$HOME/.grind/bin:$PATH"

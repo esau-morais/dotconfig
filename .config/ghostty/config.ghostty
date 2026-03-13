@@ -1,0 +1,65 @@
+# Font
+font-family = CaskaydiaCove Nerd Font
+font-style = Regular
+font-style-bold = Bold
+font-style-italic = Italic
+font-style-bold-italic = Bold Italic
+font-size = 9.5
+
+# Shell
+command = /bin/fish
+
+# Window
+window-decoration = none
+
+# Window size (columns x rows)
+window-width = 240
+window-height = 72
+
+resize-overlay = never
+
+# Padding
+window-padding-x = 8
+window-padding-y = 8
+
+# Theme
+theme = Catppuccin Mocha
+
+# Scrollback (50000 lines * ~220 bytes avg ≈ 10MB)
+scrollback-limit = 10000000
+
+# Mouse
+mouse-hide-while-typing = true
+
+confirm-close-surface = false
+unfocused-split-opacity = 1
+
+# Keybindings
+keybind = f11=toggle_fullscreen
+
+# Splits — prefix ctrl+space
+keybind = ctrl+space>backslash=new_split:right
+keybind = ctrl+space>minus=new_split:down
+
+# Navigate splits (hjkl)
+keybind = ctrl+space>h=goto_split:left
+keybind = ctrl+space>j=goto_split:down
+keybind = ctrl+space>k=goto_split:up
+keybind = ctrl+space>l=goto_split:right
+
+# Resize splits (prefix + shift+hjkl, 5 cells)
+keybind = ctrl+space>shift+h=resize_split:left,5
+keybind = ctrl+space>shift+j=resize_split:down,5
+keybind = ctrl+space>shift+k=resize_split:up,5
+keybind = ctrl+space>shift+l=resize_split:right,5
+
+# Zoom split (prefix + m)
+keybind = ctrl+space>m=toggle_split_zoom
+
+# Tabs (prefix + n/p)
+keybind = ctrl+space>n=new_tab
+keybind = ctrl+space>p=previous_tab
+keybind = ctrl+space>period=next_tab
+
+# Copy selection to clipboard (prefix + y)
+keybind = ctrl+space>y=copy_to_clipboard

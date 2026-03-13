@@ -11,11 +11,6 @@
 			"enabled": false,
 			"command": ["npx", "-y", "@remotion/mcp@latest"]
 		},
-		"tanstack": {
-			"type": "local",
-			"enabled": true,
-			"command": ["npx", "@tanstack/cli", "mcp"]
-		},
 		"shadcn": {
 			"type": "local",
 			"command": ["npx", "shadcn@latest", "mcp"],
