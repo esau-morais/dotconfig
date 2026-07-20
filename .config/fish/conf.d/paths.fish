@@ -3,7 +3,6 @@ set -gx BUN_INSTALL $HOME/.bun
 set -gx DENO_INSTALL $HOME/.deno
 set -gx PNPM_HOME $HOME/.local/share/pnpm
 set -gx FLYCTL_INSTALL $HOME/.fly
-set -gx NVM_DIR $HOME/.nvm
 set -gx DISABLE_AUTO_UPDATE true
 
 # PATH — fish_add_path persists to universal vars, safe to call repeatedly (idempotent)
