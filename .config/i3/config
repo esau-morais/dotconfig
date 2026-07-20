@@ -16,15 +16,12 @@ set $mod Mod4
 font pango:Ubuntu Sans Regular 8
 
 # add compositor
-exec --no-startup-id picom -b &
+exec_always --no-startup-id picom -b
 
 exec --no-startup-id feh --bg-scale $HOME/Pictures/wallpaper.png
 
-set $TOUCHPAD_DEVICE "FOCA0001:00 2808:0106 Touchpad"
-# inverted touchpad scroll
-exec --no-startup-id xinput set-prop $TOUCHPAD_DEVICE "libinput Natural Scrolling Enabled" 1
-# touchpad tapping
-exec --no-startup-id xinput set-prop $TOUCHPAD_DEVICE "libinput Tapping Enabled" 1
+exec --no-startup-id xinput set-prop "IMG4100:00 4D49:4150 Touchpad" "libinput Natural Scrolling Enabled" 1
+exec --no-startup-id xinput set-prop "IMG4100:00 4D49:4150 Touchpad" "libinput Tapping Enabled" 1
 exec --no-startup-id xrdb ~/.Xresources
 
 # enter mouse-mode (pick ONE trigger you don't already use)
@@ -93,7 +90,7 @@ set $volume_notify ~/.config/i3/scripts/volume-notify
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3blocks && $volume_notify
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3blocks && $volume_notify
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3blocks && $volume_notify
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3blocks
 
 # adjust brightness
 bindsym XF86MonBrightnessUp exec brightnessctl set +10%
@@ -107,7 +104,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec ghostty
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -305,6 +302,7 @@ bar {
     inactive_workspace $base  $base     $text
     urgent_workspace   $base  $red      $crust
   }
+
   status_command SCRIPT_DIR=$HOME/.config/i3blocks/scripts i3blocks -c /home/emots/.config/i3blocks/config
 }
 
