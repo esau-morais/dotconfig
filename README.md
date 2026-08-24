@@ -1,4 +1,4 @@
-# [dot] files
+ea [dot] files
 
 ## Setup
 

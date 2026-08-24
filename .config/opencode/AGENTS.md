@@ -1,6 +1,3 @@
-- Avoid adding unnecessary comments to the code. Only add if actually needed.
-- At the end of each plan, list unresolved questions, if any. Sacrifice grammar for the sake of concision.
-
 ## Writing discipline
 
 Before writing any user-facing prose (reports, explanations, PR text), load and apply the `unslop` skill. Non-negotiable; do not decide per-turn whether it applies.

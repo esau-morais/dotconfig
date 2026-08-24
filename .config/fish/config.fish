@@ -4,6 +4,9 @@ alias pn=pnpm
 alias lg=lazygit
 alias cl=claude
 alias oc=opencode
+alias oc2=opencode2
+alias ca=cursor-agent
+alias kc=kiro-cli
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias fo='pomodoro focus'
 alias br='pomodoro break'
@@ -28,5 +31,9 @@ function pomodoro
 end
 
 set -U fish_greeting ""
+set -g fish_key_bindings fish_hybrid_key_bindings
 
 # PATH and env vars are set in conf.d/paths.fish
+
+# opencode
+fish_add_path /home/emots/.opencode/bin

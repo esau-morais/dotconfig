@@ -1,5 +1,24 @@
 {
+	"env": {
+		"CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+		"CLAUDE_CODE_NO_FLICKER": "1"
+	},
 	"includeCoAuthoredBy": false,
+	"model": "sonnet",
+	"hooks": {
+		"Stop": [
+			{
+				"matcher": "",
+				"hooks": [
+					{
+						"type": "prompt",
+						"prompt": "You are a prose-quality gate for Claude Code. Evaluate the most recent assistant reply in this conversation. Hook input: $ARGUMENTS\n\nIf stop_hook_active is true in the input, respond {\"ok\":true} immediately.\n\nCheck the reply against the unslop writing standard:\n1. Puffery and AI vocabulary: testament to, pivotal, delve, tapestry, landscape as metaphor, leverage, utilize, showcase, crucial, foster\n2. Chatbot phrases: I hope this helps, Let me know if, Of course, Certainly\n3. Sycophantic openers: Great question, You are absolutely right\n4. Not just X but Y framing\n5. Em dashes used as separators (three or more in one reply)\n6. Filler: it is important to note that, in order to, due to the fact that\n7. Abstract metaphor nouns: substrate, flywheel, north star, paradigm\n8. Generic conclusions with no specific fact\n\nOnly block for clear violations that make the text obviously machine-written. Do not block for style you merely prefer.\n\nRespond with JSON only: {\"ok\":true} if the prose is clean enough to ship, or {\"ok\":false,\"reason\":\"list each offending phrase and a plain-words rewrite\"}",
+						"timeout": 30
+					}
+				]
+			}
+		]
+	},
 	"statusLine": {
 		"type": "command",
 		"command": "bash ~/.claude/statusline-wrapper.sh"
@@ -7,12 +26,10 @@
 	"enabledPlugins": {
 		"typescript-lsp@claude-plugins-official": true,
 		"rust-analyzer-lsp@claude-plugins-official": true,
-		"claude-hud@claude-hud": false
+		"claude-hud@claude-hud": false,
+		"figma@claude-plugins-official": true
 	},
-	"alwaysThinkingEnabled": false,
+	"effortLevel": "medium",
 	"skipDangerousModePermissionPrompt": true,
-	"model": "sonnet",
-	"env": {
-		"CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
-	}
+	"theme": "dark"
 }

@@ -102,7 +102,7 @@ dynamic_padding = false
 startup_mode = "Windowed"
 
 [window.dimensions]
-columns = 240
+columns = 140
 lines = 72
 
 [window.padding]
